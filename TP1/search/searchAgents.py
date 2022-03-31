@@ -340,11 +340,39 @@ def cornersHeuristic(state, problem):
     on the shortest path from the state to a goal of the problem; i.e.
     it should be admissible (as well as consistent).
     """
+    
+    def changeState(state, j):
+        nueva = list(state[1])
+        nueva[j] = True
+        return tuple(nueva)
+    
+    if (state[1] == (True,True,True,True)):
+        return 0
     corners = problem.corners # These are the corner coordinates
-    walls = problem.walls # These are the walls of the maze, as a Grid (game.py)
+    # walls = problem.walls # These are the walls of the maze, as a Grid (game.py)
+    (x,y),_ = state
+    cc = -1
+    
+    #-----
+    for i in range(0,4):
+        if (not state[1][i]):
+            if (cc == -1):
+                cc = i
+                break
+            if (util.manhattanDistance((x,y),corners[i]) < util.manhattanDistance((x,y),corners[cc])):
+                cc = i
+    nuevas = list (state[1])
+    nuevas[cc] = True
 
-    "*** YOUR CODE HERE ***"
-    return 0 # Default to trivial solution
+    return util.manhattanDistance((x, y), corners[cc]) + cornersHeuristic((corners[cc], tuple(nuevas)), problem)
+    """
+    minimu = 10000000
+    for j in range(0,4):
+        if (not state[1][j]):
+            minimu = min((util.manhattanDistance((x,y), corners[j]) + cornersHeuristic((corners[cc], changeState(state, j)), problem)), minimu)
+    return minimu
+    """ 
+    """ Por cada corner no visitado, agarrar la suma de llegar a ese corner mas la simulacion de esto sobre ese corner"""
 
 class AStarCornersAgent(SearchAgent):
     "A SearchAgent for FoodSearchProblem using A* and your foodHeuristic"
@@ -433,9 +461,47 @@ def foodHeuristic(state, problem):
       problem.heuristicInfo['wallCount'] = problem.walls.count()
     Subsequent calls to this heuristic can access problem.heuristicInfo['wallCount']
     """
+
     position, foodGrid = state
-    "*** YOUR CODE HERE ***"
-    return 0
+
+    a, objetives = state
+    b = list(a)
+    x = b[0]
+    y = b[1]
+    
+    banana = foodGrid.asList()
+
+
+    if (not banana):
+        return 0
+    cc = -1
+    
+    for i in range(0,len(banana)):
+            if (util.manhattanDistance((x,y),banana[i]) < util.manhattanDistance((x,y), banana[cc])):
+                cc = i
+
+    nuevas = foodGrid.copy()
+    nuevas[banana[cc][0]][banana[cc][1]] = False
+
+    return util.manhattanDistance((x, y), banana[cc]) + foodHeuristic((banana[cc], nuevas), problem)
+
+
+"""
+    if (not banana):
+        return 0
+    return min(map(lambda x: recoorerYCalcular(x,problem, state), banana))
+def recoorerYCalcular(position, problem, state):
+    (a,b) = position
+    (x,y), foodGrid = state
+    man = util.manhattanDistance((a,b), (x,y))
+
+    nuevas = foodGrid.copy()
+    nuevas[a][b] = False
+
+    return man + foodHeuristic(((a,b), nuevas), problem)
+"""
+
+
 
 class ClosestDotSearchAgent(SearchAgent):
     "Search for all food using a sequence of searches"
