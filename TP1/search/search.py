@@ -102,6 +102,7 @@ def depthFirstSearch(problem):
     """
     return search(problem, util.Stack())
 
+
 def breadthFirstSearch(problem):
     """
     Search the shallowest nodes in the search tree first.
@@ -110,7 +111,7 @@ def breadthFirstSearch(problem):
 
 def uniformCostSearch(problem):
     "Search the node of least total cost first."
-    return search(problem, util.PriorityQueueWithFunction(lambda candidate : len(candidate[1])))
+    return search(problem, util.PriorityQueueWithFunction(lambda candidate : problem.getCostOfActions(candidate[1])))
 
 def nullHeuristic(state, problem=None):
     """
@@ -121,21 +122,23 @@ def nullHeuristic(state, problem=None):
 
 def aStarPrintHeuristic(candidate, problem, heuristic):
     print (candidate)
-    print (heuristic(candidate[0], problem) + len(candidate[1]))
+    print (heuristic(candidate[0], problem) + problem.getCostOfActions(candidate[1]))
     print ('\n')
-    return (heuristic(candidate[0], problem) + len(candidate[1]))
+    return (heuristic(candidate[0], problem) + problem.getCostOfActions(candidate[1]))
 
 def aStarHardHeuristicAproach(candidate, problem, heuristic):
     "Hecho solo para que funcione con distancia euclideana. Esto puede romper si la heuristica es admisible (probablemente la rompa)"
-    return (heuristic(candidate[0], problem) * 1.41 + len(candidate[1]))
+    return (heuristic(candidate[0], problem) * 1.41 + problem.getCostOfActions(candidate[1]))
     #return (heuristic(candidate[0], problem) + len(candidate[1]) / 2)
 
 
 def aStarSearch(problem, heuristic=nullHeuristic):
     "Search the node that has the lowest combined cost and heuristic first."
-    #return search(problem, util.PriorityQueueWithFunction(lambda candidate : heuristic(candidate[0], problem) + len(candidate[1])))
+    return search(problem, util.PriorityQueueWithFunction(lambda candidate : heuristic(candidate[0], problem) + problem.getCostOfActions(candidate[1])))
     #return search(problem, util.PriorityQueueWithFunction(lambda candidate : aStarPrintHeuristic(candidate, problem, heuristic)))
-    return search(problem, util.PriorityQueueWithFunction(lambda candidate : aStarHardHeuristicAproach(candidate, problem, heuristic)))
+    #return search(problem, util.PriorityQueueWithFunction(lambda candidate : aStarHardHeuristicAproach(candidate, problem, heuristic)))
+
+
 
 # Abbreviations
 bfs = breadthFirstSearch

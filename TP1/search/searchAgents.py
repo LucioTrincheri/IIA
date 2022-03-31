@@ -256,6 +256,7 @@ def euclideanHeuristic(position, problem, info={}):
 # This portion is incomplete.  Time to write code!  #
 #####################################################
 
+
 class CornersProblem(search.SearchProblem):
     """
     This search problem finds paths through all four corners of a layout.
@@ -280,13 +281,11 @@ class CornersProblem(search.SearchProblem):
 
     def getStartState(self):
         "Returns the start state (in your state space, not the full Pacman state space)"
-        "*** YOUR CODE HERE ***"
-        util.raiseNotDefined()
+        return (self.startingPosition, (False, False, False, False))
 
     def isGoalState(self, state):
         "Returns whether this search state is a goal state of the problem"
-        "*** YOUR CODE HERE ***"
-        util.raiseNotDefined()
+        return state[1] == (True, True, True, True)
 
     def getSuccessors(self, state):
         """
@@ -302,16 +301,16 @@ class CornersProblem(search.SearchProblem):
 
         successors = []
         for action in [Directions.NORTH, Directions.SOUTH, Directions.EAST, Directions.WEST]:
-            # Add a successor state to the successor list if the action is legal
-            # Here's a code snippet for figuring out whether a new position hits a wall:
-            #   x,y = currentPosition
-            #   dx, dy = Actions.directionToVector(action)
-            #   nextx, nexty = int(x + dx), int(y + dy)
-            #   hitsWall = self.walls[nextx][nexty]
+            (x,y) = state[0]
+            dx, dy = Actions.directionToVector(action)
+            nextx, nexty = int(x + dx), int(y + dy)
+            if not self.walls[nextx][nexty]:
+                nextState = ((nextx, nexty), (state[1][0] or (nextx, nexty) == self.corners[0], state[1][1] or (nextx, nexty) == self.corners[1], state[1][2] or (nextx, nexty) == self.corners[2], state[1][3] or (nextx, nexty) == self.corners[3]))
+                successors.append( ( nextState, action, 1) )
 
-            "*** YOUR CODE HERE ***"
-
+        # Bookkeeping for display purposes
         self._expanded += 1
+
         return successors
 
     def getCostOfActions(self, actions):
