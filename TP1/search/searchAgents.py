@@ -462,21 +462,21 @@ def foodHeuristic(state, problem):
 
     (x,y), foodGrid = state
 
-    food = foodGrid.asList()
+    foodList = foodGrid.asList()
 
-    if (not food):
-        return 0
+    result = 0
+    actual = (x,y)
 
-    closest = (99999,99999)
-    for i in food:
-        if (util.manhattanDistance((x,y),i) < util.manhattanDistance((x,y), closest)):
-            closest = i
+    while foodList:
+        closest = (99999,99999)
+        for i in foodList:
+            if (util.manhattanDistance(actual,i) < util.manhattanDistance(actual, closest)):
+                closest = i
+        result += util.manhattanDistance(actual,closest)
+        foodList.remove(closest)
+        actual = closest
 
-    nuevas = foodGrid.copy()
-    nuevas[closest[0]][closest[1]] = False
-
-    return util.manhattanDistance((x, y), closest) + foodHeuristic((closest, nuevas), problem)
-
+    return result
 """
     (x,y), foodGrid = state
 
