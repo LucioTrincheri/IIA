@@ -28,6 +28,7 @@ project description for details.
 
 Good luck and happy searching!
 """
+from os import stat
 from game import Directions
 from game import Agent
 from game import Actions
@@ -340,39 +341,35 @@ def cornersHeuristic(state, problem):
     on the shortest path from the state to a goal of the problem; i.e.
     it should be admissible (as well as consistent).
     """
-    
-    def changeState(state, j):
-        nueva = list(state[1])
-        nueva[j] = True
-        return tuple(nueva)
-    
+
+    """
+    La heuristica implementada es admisible ya que la misma calcula el menor camino a recorrer para ir a todas las esquinas
+    teniendo en cuenta la ausencia total de paredes. La aparicion de estas solo puede causar que el recorrido se alargue
+    ya que se debe esquivarlas.
+    """
+
     if (state[1] == (True,True,True,True)):
         return 0
-    corners = problem.corners # These are the corner coordinates
-    # walls = problem.walls # These are the walls of the maze, as a Grid (game.py)
+
+    corners = problem.corners
+
     (x,y),_ = state
-    cc = -1
-    
-    #-----
+    closest = -1
+    # Se busca la esquina mas cercana que no haya sido visitada.
     for i in range(0,4):
         if (not state[1][i]):
-            if (cc == -1):
-                cc = i
+            if (closest == -1):
+                closest = i
                 break
-            if (util.manhattanDistance((x,y),corners[i]) < util.manhattanDistance((x,y),corners[cc])):
-                cc = i
-    nuevas = list (state[1])
-    nuevas[cc] = True
+            if (util.manhattanDistance((x,y),corners[i]) < util.manhattanDistance((x,y), corners[closest])):
+                closest = i
 
-    return util.manhattanDistance((x, y), corners[cc]) + cornersHeuristic((corners[cc], tuple(nuevas)), problem)
-    """
-    minimu = 10000000
-    for j in range(0,4):
-        if (not state[1][j]):
-            minimu = min((util.manhattanDistance((x,y), corners[j]) + cornersHeuristic((corners[cc], changeState(state, j)), problem)), minimu)
-    return minimu
-    """ 
-    """ Por cada corner no visitado, agarrar la suma de llegar a ese corner mas la simulacion de esto sobre ese corner"""
+    # Se setea como visitada la esquina mas cercana para continuar con la simulacion a partir de la posicion de la misma    .
+    nuevas = list (state[1])
+    nuevas[closest] = True
+
+    return util.manhattanDistance((x, y), corners[closest]) + cornersHeuristic((corners[closest], tuple(nuevas)), problem)
+
 
 class AStarCornersAgent(SearchAgent):
     "A SearchAgent for FoodSearchProblem using A* and your foodHeuristic"
@@ -436,6 +433,7 @@ class AStarFoodSearchAgent(SearchAgent):
         self.searchFunction = lambda prob: search.aStarSearch(prob, foodHeuristic)
         self.searchType = FoodSearchProblem
 
+
 def foodHeuristic(state, problem):
     """
     Your heuristic for the FoodSearchProblem goes here.
@@ -462,47 +460,125 @@ def foodHeuristic(state, problem):
     Subsequent calls to this heuristic can access problem.heuristicInfo['wallCount']
     """
 
-    position, foodGrid = state
-
-    a, objetives = state
-    b = list(a)
-    x = b[0]
-    y = b[1]
-    
-    banana = foodGrid.asList()
-
-
-    if (not banana):
-        return 0
-    cc = -1
-    
-    for i in range(0,len(banana)):
-            if (util.manhattanDistance((x,y),banana[i]) < util.manhattanDistance((x,y), banana[cc])):
-                cc = i
-
-    nuevas = foodGrid.copy()
-    nuevas[banana[cc][0]][banana[cc][1]] = False
-
-    return util.manhattanDistance((x, y), banana[cc]) + foodHeuristic((banana[cc], nuevas), problem)
-
-
-"""
-    if (not banana):
-        return 0
-    return min(map(lambda x: recoorerYCalcular(x,problem, state), banana))
-def recoorerYCalcular(position, problem, state):
-    (a,b) = position
     (x,y), foodGrid = state
-    man = util.manhattanDistance((a,b), (x,y))
+
+    food = foodGrid.asList()
+
+    if (not food):
+        return 0
+
+    closest = (99999,99999)
+    for i in food:
+        if (util.manhattanDistance((x,y),i) < util.manhattanDistance((x,y), closest)):
+            closest = i
 
     nuevas = foodGrid.copy()
-    nuevas[a][b] = False
+    nuevas[closest[0]][closest[1]] = False
 
-    return man + foodHeuristic(((a,b), nuevas), problem)
+    return util.manhattanDistance((x, y), closest) + foodHeuristic((closest, nuevas), problem)
+
 """
+    (x,y), foodGrid = state
 
+    foodList = foodGrid.asList()
 
+    food1 = (0,0)
+    food2 = (0,0)
+    for p in foodList:
+        for p2 in foodList:
+            distance = util.manhattanDistance(p, p2)
+            if (distance > util.manhattanDistance(food1, food2)):
+                food1 = p
+                food2 = p2
 
+    distancia = util.manhattanDistance((x,y), food1)
+    distancia2 = util.manhattanDistance((x,y), food2)
+
+    if (distancia > distancia2):
+        return distancia + util.manhattanDistance(food1, food2)
+
+    return distancia2 + util.manhattanDistance(food1, food2)
+    position, foodGrid = state
+    "*** YOUR CODE HERE ***"
+
+    foods = foodGrid.asList()
+    if not foods:
+        return 0
+
+    maxDist = 0
+    for food in foods:
+        key = position + food
+        if key in problem.heuristicInfo:
+            distance = problem.heuristicInfo[key]
+        else:
+            # Use manhattan distance can get 6/7
+            distance = mazeDistance(position, food, problem.startingGameState)
+            problem.heuristicInfo[key] = distance
+
+        if distance > maxDist:
+            maxDist = distance
+
+    return maxDist
+"""
+    
+
+    
+def euclideanDistance(p, p2):
+    return ((p[0]-p2[0])**2 + (p[1]-p2[1])**2)**0.5
+
+def foodHeuristic2(state, problem):
+    """
+    Your heuristic for the FoodSearchProblem goes here.
+
+    This heuristic must be consistent to ensure correctness.  First, try to come up
+    with an admissible heuristic; almost all admissible heuristics will be consistent
+    as well.
+
+    If using A* ever finds a solution that is worse uniform cost search finds,
+    your heuristic is *not* consistent, and probably not admissible!  On the other hand,
+    inadmissible or inconsistent heuristics may find optimal solutions, so be careful.
+
+    The state is a tuple ( pacmanPosition, foodGrid ) where foodGrid is a
+    Grid (see game.py) of either True or False. You can call foodGrid.asList()
+    to get a list of food coordinates instead.
+
+    If you want access to info like walls, capsules, etc., you can query the problem.
+    For example, problem.walls gives you a Grid of where the walls are.
+
+    If you want to *store* information to be reused in other calls to the heuristic,
+    there is a dictionary called problem.heuristicInfo that you can use. For example,
+    if you only want to count the walls once and store that value, try:
+      problem.heuristicInfo['wallCount'] = problem.walls.count()
+    Subsequent calls to this heuristic can access problem.heuristicInfo['wallCount']
+    """
+    total = 0.0
+    (x,y), foodGrid = state
+    
+    foodList = foodGrid.asList()
+    cant = len(foodList)
+    food1 = (0,0)
+    food2 = (0,0)
+
+    for p in foodList:
+        for p2 in foodList:
+            distance = euclideanDistance(p, p2)
+            if (distance > euclideanDistance(food1, food2)):
+                food1 = p
+                food2 = p2
+
+    distancia = euclideanDistance((x,y), food1)
+    distancia2 = euclideanDistance((x,y), food2)
+    
+    if (distancia > distancia2):
+        total = distancia + euclideanDistance(food1, food2)
+    else:
+        total = distancia2 + euclideanDistance(food1, food2)
+
+    for p in foodList:
+        distance = euclideanDistance(p, (x, y))
+        total += (distance ** 0.5) / cant
+    
+    return total
 class ClosestDotSearchAgent(SearchAgent):
     "Search for all food using a sequence of searches"
     def registerInitialState(self, state):
@@ -600,7 +676,7 @@ def mazeDistance(point1, point2, gameState):
     x1, y1 = point1
     x2, y2 = point2
     walls = gameState.getWalls()
-    assert not walls[x1][y1], 'point1 is a wall: ' + point1
+    assert not walls[x1][y1], 'point1 is a wall: ' + str(point1)
     assert not walls[x2][y2], 'point2 is a wall: ' + str(point2)
     prob = PositionSearchProblem(gameState, start=point1, goal=point2, warn=False)
     return len(search.bfs(prob))

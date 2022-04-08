@@ -120,24 +120,25 @@ def nullHeuristic(state, problem=None):
     """
     return 0
 
-def aStarPrintHeuristic(candidate, problem, heuristic):
-    print (candidate)
-    print (heuristic(candidate[0], problem) + problem.getCostOfActions(candidate[1]))
-    print ('\n')
-    return (heuristic(candidate[0], problem) + problem.getCostOfActions(candidate[1]))
-
-def aStarHardHeuristicAproach(candidate, problem, heuristic):
-    "Hecho solo para que funcione con distancia euclideana. Esto puede romper si la heuristica es admisible (probablemente la rompa)"
-    return (heuristic(candidate[0], problem) * 1.41 + problem.getCostOfActions(candidate[1]))
-    #return (heuristic(candidate[0], problem) + len(candidate[1]) / 2)
-
 
 def aStarSearch(problem, heuristic=nullHeuristic):
-    "Search the node that has the lowest combined cost and heuristic first."
-    return search(problem, util.PriorityQueueWithFunction(lambda candidate : heuristic(candidate[0], problem) + problem.getCostOfActions(candidate[1])))
-    #return search(problem, util.PriorityQueueWithFunction(lambda candidate : aStarPrintHeuristic(candidate, problem, heuristic)))
-    #return search(problem, util.PriorityQueueWithFunction(lambda candidate : aStarHardHeuristicAproach(candidate, problem, heuristic)))
+    """
+    Search the node that has the lowest combined cost and heuristic first.
 
+    Aca se presentan dos soluciones muy similares:
+        - La primera toma los nodos ordenados por prioridad f() en el orden que fueron insertados.
+          Esto causa que el sistema en algunos casos sea mejor o peor ya que tendra la tendencia que a mismos
+          costos siga siempre en una direccion en particular. En nuestro caso WEST EAST SOUTH NORTH.
+          Esta heuristica causo un valor menor de nodos expandidos en el ejemplo bigMaze pero puede llegar
+          a tener un peor rendimiento en algunos laberintos (mayor cantidad de nodos expandidos)
+        - La segunda heuristica funciona al igual que la primera solo que toma en cuenta la antiguedad de los nodos
+          insertados en los candidatos a expandir. Esto causa que el resultado no prefiera expandirse en una sola
+          direccion sino que sigue mas de cerca a la idea de astar.
+
+        Se puede comentar una y descomentar la otra para ver las diferencias en los nodos expandidos.
+    """
+    #return search(problem, util.PriorityQueueWithFunction(lambda candidate : heuristic(candidate[0], problem) + problem.getCostOfActions(candidate[1])))
+    return search(problem, util.PriorityQueueWithFunction(lambda candidate : heuristic(candidate[0], problem) + problem.getCostOfActions(candidate[1]) + len(candidate[1]) / float((problem.walls.height - 2) * (problem.walls.width - 2))))
 
 
 # Abbreviations
