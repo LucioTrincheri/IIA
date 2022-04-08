@@ -433,6 +433,20 @@ class AStarFoodSearchAgent(SearchAgent):
         self.searchFunction = lambda prob: search.aStarSearch(prob, foodHeuristic)
         self.searchType = FoodSearchProblem
 
+class AStarFoodSearchAgent2(SearchAgent):
+    "A SearchAgent for FoodSearchProblem using A* and your foodHeuristic"
+    def __init__(self):
+        self.searchFunction = lambda prob: search.aStarSearch(prob, foodHeuristic2)
+        self.searchType = FoodSearchProblem
+
+class AStarFoodSearchAgent3(SearchAgent):
+    "A SearchAgent for FoodSearchProblem using A* and your foodHeuristic"
+    def __init__(self):
+        self.searchFunction = lambda prob: search.aStarSearch(prob, foodHeuristic3)
+        self.searchType = FoodSearchProblem
+    
+def euclideanDistance(p, p2):
+    return ((p[0]-p2[0])**2 + (p[1]-p2[1])**2)**0.5
 
 def foodHeuristic(state, problem):
     """
@@ -477,54 +491,6 @@ def foodHeuristic(state, problem):
 
     return util.manhattanDistance((x, y), closest) + foodHeuristic((closest, nuevas), problem)
 
-"""
-    (x,y), foodGrid = state
-
-    foodList = foodGrid.asList()
-
-    food1 = (0,0)
-    food2 = (0,0)
-    for p in foodList:
-        for p2 in foodList:
-            distance = util.manhattanDistance(p, p2)
-            if (distance > util.manhattanDistance(food1, food2)):
-                food1 = p
-                food2 = p2
-
-    distancia = util.manhattanDistance((x,y), food1)
-    distancia2 = util.manhattanDistance((x,y), food2)
-
-    if (distancia > distancia2):
-        return distancia + util.manhattanDistance(food1, food2)
-
-    return distancia2 + util.manhattanDistance(food1, food2)
-    position, foodGrid = state
-    "*** YOUR CODE HERE ***"
-
-    foods = foodGrid.asList()
-    if not foods:
-        return 0
-
-    maxDist = 0
-    for food in foods:
-        key = position + food
-        if key in problem.heuristicInfo:
-            distance = problem.heuristicInfo[key]
-        else:
-            # Use manhattan distance can get 6/7
-            distance = mazeDistance(position, food, problem.startingGameState)
-            problem.heuristicInfo[key] = distance
-
-        if distance > maxDist:
-            maxDist = distance
-
-    return maxDist
-"""
-    
-
-    
-def euclideanDistance(p, p2):
-    return ((p[0]-p2[0])**2 + (p[1]-p2[1])**2)**0.5
 
 def foodHeuristic2(state, problem):
     """
@@ -551,34 +517,77 @@ def foodHeuristic2(state, problem):
       problem.heuristicInfo['wallCount'] = problem.walls.count()
     Subsequent calls to this heuristic can access problem.heuristicInfo['wallCount']
     """
-    total = 0.0
-    (x,y), foodGrid = state
-    
+
+    position, foodGrid = state
+
     foodList = foodGrid.asList()
-    cant = len(foodList)
+
     food1 = (0,0)
     food2 = (0,0)
-
     for p in foodList:
         for p2 in foodList:
             distance = euclideanDistance(p, p2)
             if (distance > euclideanDistance(food1, food2)):
                 food1 = p
                 food2 = p2
-
-    distancia = euclideanDistance((x,y), food1)
-    distancia2 = euclideanDistance((x,y), food2)
     
+    "Aca cambie cosas xy a pos"
+    distancia = euclideanDistance(position, food1)
+    distancia2 = euclideanDistance(position, food2)
+
     if (distancia > distancia2):
-        total = distancia + euclideanDistance(food1, food2)
-    else:
-        total = distancia2 + euclideanDistance(food1, food2)
+        return distancia + euclideanDistance(food1, food2)
 
-    for p in foodList:
-        distance = euclideanDistance(p, (x, y))
-        total += (distance ** 0.5) / cant
+    return distancia2 + euclideanDistance(food1, food2)
+
+
+def foodHeuristic3(state, problem):
+    """
+    Your heuristic for the FoodSearchProblem goes here.
+
+    This heuristic must be consistent to ensure correctness.  First, try to come up
+    with an admissible heuristic; almost all admissible heuristics will be consistent
+    as well.
+
+    If using A* ever finds a solution that is worse uniform cost search finds,
+    your heuristic is *not* consistent, and probably not admissible!  On the other hand,
+    inadmissible or inconsistent heuristics may find optimal solutions, so be careful.
+
+    The state is a tuple ( pacmanPosition, foodGrid ) where foodGrid is a
+    Grid (see game.py) of either True or False. You can call foodGrid.asList()
+    to get a list of food coordinates instead.
+
+    If you want access to info like walls, capsules, etc., you can query the problem.
+    For example, problem.walls gives you a Grid of where the walls are.
+
+    If you want to *store* information to be reused in other calls to the heuristic,
+    there is a dictionary called problem.heuristicInfo that you can use. For example,
+    if you only want to count the walls once and store that value, try:
+      problem.heuristicInfo['wallCount'] = problem.walls.count()
+    Subsequent calls to this heuristic can access problem.heuristicInfo['wallCount']
+    """
+
+    position, foodGrid = state
+    "*** YOUR CODE HERE ***"
+
+    foods = foodGrid.asList()
+    if not foods:
+        return 0
+
+    maxDist = 0
+    for food in foods:
+        key = position + food
+        if key in problem.heuristicInfo:
+            distance = problem.heuristicInfo[key]
+        else:
+            distance = mazeDistance(position, food, problem.startingGameState)
+            problem.heuristicInfo[key] = distance
+
+        if distance > maxDist:
+            maxDist = distance
+
+    return maxDist
     
-    return total
 class ClosestDotSearchAgent(SearchAgent):
     "Search for all food using a sequence of searches"
     def registerInitialState(self, state):
