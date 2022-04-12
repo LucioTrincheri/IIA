@@ -1,3 +1,5 @@
+# Ignacio Petruskevicius y Lucio Trincheri
+
 # search.py
 # ---------
 # Licensing Information: Please do not distribute or publish solutions to this
@@ -135,9 +137,9 @@ def aStarSearch(problem, heuristic=nullHeuristic):
           insertados en los candidatos a expandir. Esto causa que el resultado no prefiera expandirse en una sola
           direccion sino que sigue mas de cerca a la idea de astar.
 
-        Se puede comentar una y descomentar la otra para ver las diferencias en los nodos expandidos.
+        Se puede cambiar el orden de los returns para ejecutar una o la otra y ver las diferencias en los nodos expandidos.
     """
-    #return search(problem, util.PriorityQueueWithFunction(lambda candidate : heuristic(candidate[0], problem) + problem.getCostOfActions(candidate[1])))
+    return search(problem, util.PriorityQueueWithFunction(lambda candidate : heuristic(candidate[0], problem) + problem.getCostOfActions(candidate[1])))
     return search(problem, util.PriorityQueueWithFunction(lambda candidate : heuristic(candidate[0], problem) + problem.getCostOfActions(candidate[1]) + len(candidate[1]) / float((problem.walls.height - 2) * (problem.walls.width - 2))))
 
 

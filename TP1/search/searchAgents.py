@@ -1,3 +1,5 @@
+# Ignacio Petruskevicius y Lucio Trincheri
+
 # searchAgents.old.py
 # -------------------
 # Licensing Information: Please do not distribute or publish solutions to this
@@ -345,7 +347,7 @@ def cornersHeuristic(state, problem):
     """
     La heuristica implementada es admisible ya que la misma calcula el menor camino a recorrer para ir a todas las esquinas
     teniendo en cuenta la ausencia total de paredes. La aparicion de estas solo puede causar que el recorrido se alargue
-    ya que se debe esquivarlas.
+    ya que se debe esquivarlas. Por lo tanto el resultado de la heuristica siempre sera menor que el real.
     """
 
     if (state[1] == (True,True,True,True)):
@@ -427,6 +429,13 @@ class FoodSearchProblem:
             cost += 1
         return cost
 
+"""
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+Aca se encuentran las operaciones para las 3 heuristicas de busqueda de comida que realizamos.
+Todas intercambian cantidad nodos expandidos por velocidad de procesamiento y viceversa.
+En cada una de las heuristicas se explicara, debajo del texto ya presente, el metodo utilizado en la misma.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+"""
 class AStarFoodSearchAgent(SearchAgent):
     "A SearchAgent for FoodSearchProblem using A* and your foodHeuristic"
     def __init__(self):
@@ -444,7 +453,8 @@ class AStarFoodSearchAgent3(SearchAgent):
     def __init__(self):
         self.searchFunction = lambda prob: search.aStarSearch(prob, foodHeuristic3)
         self.searchType = FoodSearchProblem
-    
+
+
 def euclideanDistance(p, p2):
     return ((p[0]-p2[0])**2 + (p[1]-p2[1])**2)**0.5
 
@@ -475,8 +485,12 @@ def foodHeuristic(state, problem):
     """
 
     """
-    Idea derivada de la heurística implementada para cornerSearchProblem, se calcula la distancia manhattan desde la posición
-    del pacman hasta la comida más cercana y de esta a las más cercana y así sucesivamente.
+    /----------------------------------------------------------------------------------------------------------------------------------------------------------------
+    Idea derivada de la heuristica implementada para cornerSearchProblem, se calcula la distancia manhattan desde la posicion
+    del pacman hasta la comida mas cercana, de esta a el mas cercano y asi sucesivamente. Podemos ver que esta es admisible,
+    ya que calcula el recorrido mas corto en el caso de que no haya muros. En el caso haberlos, el recorrido final solo aumentara
+    respecto del estimado por la heuristica.
+    \----------------------------------------------------------------------------------------------------------------------------------------------------------------
     """
 
     (x,y), foodGrid = state
@@ -496,6 +510,7 @@ def foodHeuristic(state, problem):
         actual = closest
 
     return result
+
 
 def foodHeuristic2(state, problem):
     """
@@ -523,10 +538,19 @@ def foodHeuristic2(state, problem):
     Subsequent calls to this heuristic can access problem.heuristicInfo['wallCount']
     """
 
-    position, foodGrid = state
+    """
+    /----------------------------------------------------------------------------------------------------------------------------------------------------------------
+    Se buscan las 2 comidas mas lejanas entre si y se calcula la distancia del pacman a la mas cercana de ellas.
+    Se retorna la suma de estas distancias.
+    \----------------------------------------------------------------------------------------------------------------------------------------------------------------
+    """
 
+    position, foodGrid = state
     foodList = foodGrid.asList()
 
+    if not foodList:
+        return 0
+    
     food1 = (0,0)
     food2 = (0,0)
     for p in foodList:
@@ -535,8 +559,7 @@ def foodHeuristic2(state, problem):
             if (distance > euclideanDistance(food1, food2)):
                 food1 = p
                 food2 = p2
-    
-    "Aca cambie cosas xy a pos"
+
     distancia = euclideanDistance(position, food1)
     distancia2 = euclideanDistance(position, food2)
 
@@ -544,7 +567,6 @@ def foodHeuristic2(state, problem):
         return distancia + euclideanDistance(food1, food2)
 
     return distancia2 + euclideanDistance(food1, food2)
-
 
 def foodHeuristic3(state, problem):
     """
@@ -572,27 +594,62 @@ def foodHeuristic3(state, problem):
     Subsequent calls to this heuristic can access problem.heuristicInfo['wallCount']
     """
 
-    position, foodGrid = state
-    "*** YOUR CODE HERE ***"
+    """
+    /----------------------------------------------------------------------------------------------------------------------------------------------------------------
+    Esta heuristica es una variacion de la segunda heuristica. Utiliza mazeDistance
+    Precalculamos (en la primera iteracion) las distancias entre todas las comidas.
+    Ademas se guarda la distancia entre el pacMan y las dos comidas mas lejanas entre ellas.
+    Se retorna la suma de las distancias entre el par de comidas mas lejanas y la menor de las distancias del pacman hasta estas comidas.
+    Esta heuristica es la que menos expande pero tarda mayor tiempo en computarse.
+    No podemos saber el tiempo de ejecucion real ya que mazeDistance dibuja las expansiones realizadas, por lo que no sabemos el tiempo real.
+    \----------------------------------------------------------------------------------------------------------------------------------------------------------------
+    """
 
-    foods = foodGrid.asList()
-    if not foods:
+    (x, y), foodGrid = state
+    foodList = foodGrid.asList()
+    if not foodList:
         return 0
+    gameState = problem.startingGameState
 
+    food1 = foodList[0]
+    food2 = foodList[0]
     maxDist = 0
-    for food in foods:
-        key = position + food
-        if key in problem.heuristicInfo:
-            distance = problem.heuristicInfo[key]
-        else:
-            distance = mazeDistance(position, food, problem.startingGameState)
-            problem.heuristicInfo[key] = distance
 
-        if distance > maxDist:
-            maxDist = distance
-
-    return maxDist
+    for (x1, y1) in foodList:
+        for (x2, y2) in foodList:
+            if (x1,y1,x2,y2) in problem.heuristicInfo:
+                distance = problem.heuristicInfo[(x1,y1,x2,y2)]
+            elif (x2,y2,x1,y1) in problem.heuristicInfo:
+                problem.heuristicInfo[(x1,y1,x2,y2)] = problem.heuristicInfo[(x2,y2,x1,y1)]
+                distance = problem.heuristicInfo[(x1,y1,x2,y2)]
+            else:
+                distance = mazeDistance((x1, y1), (x2, y2), gameState)
+                problem.heuristicInfo[(x1,y1,x2,y2)] = distance
+            if distance > maxDist:
+                maxDist = distance
+                food1 = (x1, y1)
+                food2 = (x2, y2)
+        
+    (x1, y1) = food1 
+    (x2, y2) = food2 
+    if (x,y,x1,y1) in problem.heuristicInfo:
+        distancia = problem.heuristicInfo[(x,y,x1,y1)]
+    else:
+        distancia = mazeDistance((x,y), (x1,y1), gameState)
+        problem.heuristicInfo[(x,y,x1,y1)] = distancia
     
+    if (x,y,x2,y2) in problem.heuristicInfo:
+        distancia2 = problem.heuristicInfo[(x,y,x2,y2)]
+    else:
+        distancia2 = mazeDistance((x,y), (x2,y2), gameState)
+        problem.heuristicInfo[(x,y,x2,y2)] = distancia2
+        
+    if (distancia > distancia2):
+        return distancia + maxDist
+
+    return distancia2 + maxDist
+
+
 class ClosestDotSearchAgent(SearchAgent):
     "Search for all food using a sequence of searches"
     def registerInitialState(self, state):
