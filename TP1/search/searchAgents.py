@@ -460,6 +460,11 @@ def foodHeuristic(state, problem):
     Subsequent calls to this heuristic can access problem.heuristicInfo['wallCount']
     """
 
+    """
+    Idea derivada de la heurística implementada para cornerSearchProblem, se calcula la distancia manhattan desde la posición
+    del pacman hasta la comida más cercana y de esta a las más cercana y así sucesivamente.
+    """
+
     (x,y), foodGrid = state
 
     foodList = foodGrid.asList()
