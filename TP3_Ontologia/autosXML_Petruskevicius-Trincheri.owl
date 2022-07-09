@@ -1,0 +1,1120 @@
+<?xml version="1.0"?>
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.semanticweb.org/lucio/ontologies/2022/3/vehiculos"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     ontologyIRI="http://www.semanticweb.org/lucio/ontologies/2022/3/vehiculos">
+    <Prefix name="" IRI="http://www.semanticweb.org/lucio/ontologies/2022/3/vehiculos"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Declaration>
+        <Class IRI="#agua"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#aire"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ala"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#batería"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#cable"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#carga"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#carretera"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#combustión-interna"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#deportiva"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#deportivo"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#diesel"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#e85"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ecologico"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#electricidad"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#físico"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#generalista"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#gnc"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#gnl"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#guiado"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#hidrógeno"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#hélice"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#hélice-acuática"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#hélice-aérea"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#industrial"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#lógico"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#maciza"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#marca"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#medio"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#medio-locomoción"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#nafta"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#no-guiado"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#obtención-energía"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#particular"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#pasajeros"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#recreativo"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#rueda"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#subterránea"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#terrestre"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#tierra"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#trabajo"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#uso"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#vapor"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#vehículo"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#vía"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#desplaza-por-medio"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#medio-correspondiente"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#pertenece-a"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#se-usa-en"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#tiene-medio-locomoción"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#tiene-modelo"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#tipo-de-uso"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#usa-energía"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#renovable"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Autódromo-Juan-Manuel-Fangio"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Aventador"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Axiom-Quantium"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Boing"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Chevrolet"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#China-North-Locomotive-And-Rolling-Stock-Industry-Corporation"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Cruze"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#FTP4-LIon"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#H2"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Infinia-Diesel"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Lamborghini"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Lancha-Santa_María"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#LineaA"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Michellin-Pilot-Sport"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Model-S-110P"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Onix"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Pirelli-F100"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Ramal-Rosario-Buenos_Aires"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Rio-Paraná"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Ruta-Aérea-4918FNZ"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Ruta40"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#S10"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#STLF4-A20"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Scania"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Shell-Super"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#SuperHeated-Vapor-500C"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Tesla"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#calles-ciudad"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#circuito"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#coche3-lineaA-subteBA"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#colectivo-122V"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#compuesta-aluminio"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#diario"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#off-road"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#paquetería"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#paseo"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#pesada"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#público"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#simple-rotor"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#sistema-rueda-carril"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#tren-formación1-rosario-BA"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#vía-electrificada"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#122V"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#450R"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#777"/>
+    </Declaration>
+    <EquivalentClasses>
+        <Class IRI="#ecologico"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#usa-energía"/>
+            <Class IRI="#electricidad"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#físico"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#guiado"/>
+            <ObjectAllValuesFrom>
+                <ObjectProperty IRI="#desplaza-por-medio"/>
+                <Class IRI="#vía"/>
+            </ObjectAllValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#lógico"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#guiado"/>
+            <ObjectComplementOf>
+                <ObjectSomeValuesFrom>
+                    <ObjectProperty IRI="#desplaza-por-medio"/>
+                    <Class IRI="#vía"/>
+                </ObjectSomeValuesFrom>
+            </ObjectComplementOf>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#maciza"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#rueda"/>
+            <ObjectAllValuesFrom>
+                <ObjectProperty IRI="#medio-correspondiente"/>
+                <Class IRI="#vía"/>
+            </ObjectAllValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#rueda"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#medio-locomoción"/>
+            <ObjectAllValuesFrom>
+                <ObjectProperty IRI="#medio-correspondiente"/>
+                <Class IRI="#tierra"/>
+            </ObjectAllValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <SubClassOf>
+        <Class IRI="#agua"/>
+        <Class IRI="#medio"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#aire"/>
+        <Class IRI="#medio"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ala"/>
+        <Class IRI="#medio-locomoción"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#batería"/>
+        <Class IRI="#electricidad"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#cable"/>
+        <Class IRI="#vía"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#carga"/>
+        <Class IRI="#uso"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#carretera"/>
+        <Class IRI="#tierra"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#combustión-interna"/>
+        <Class IRI="#obtención-energía"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#deportivo"/>
+        <Class IRI="#particular"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#diesel"/>
+        <Class IRI="#combustión-interna"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#e85"/>
+        <Class IRI="#combustión-interna"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#electricidad"/>
+        <Class IRI="#obtención-energía"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#físico"/>
+        <Class IRI="#guiado"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#generalista"/>
+        <Class IRI="#marca"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#gnc"/>
+        <Class IRI="#combustión-interna"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#gnl"/>
+        <Class IRI="#combustión-interna"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#guiado"/>
+        <Class IRI="#vehículo"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#hidrógeno"/>
+        <Class IRI="#electricidad"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#hélice"/>
+        <Class IRI="#medio-locomoción"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#hélice-acuática"/>
+        <Class IRI="#hélice"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#hélice-aérea"/>
+        <Class IRI="#hélice"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#industrial"/>
+        <Class IRI="#carga"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#lógico"/>
+        <Class IRI="#guiado"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#maciza"/>
+        <Class IRI="#rueda"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#nafta"/>
+        <Class IRI="#combustión-interna"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#no-guiado"/>
+        <Class IRI="#vehículo"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#particular"/>
+        <Class IRI="#uso"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#pasajeros"/>
+        <Class IRI="#carga"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#recreativo"/>
+        <Class IRI="#particular"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#rueda"/>
+        <Class IRI="#medio-locomoción"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#subterránea"/>
+        <Class IRI="#vía"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#terrestre"/>
+        <Class IRI="#vía"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#tierra"/>
+        <Class IRI="#medio"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#trabajo"/>
+        <Class IRI="#marca"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#vapor"/>
+        <Class IRI="#obtención-energía"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#vía"/>
+        <Class IRI="#tierra"/>
+    </SubClassOf>
+    <DisjointClasses>
+        <Class IRI="#agua"/>
+        <Class IRI="#aire"/>
+        <Class IRI="#carretera"/>
+        <Class IRI="#vía"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#ala"/>
+        <Class IRI="#rueda"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#batería"/>
+        <Class IRI="#hidrógeno"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#cable"/>
+        <Class IRI="#subterránea"/>
+        <Class IRI="#terrestre"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#carga"/>
+        <Class IRI="#particular"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#combustión-interna"/>
+        <Class IRI="#electricidad"/>
+        <Class IRI="#vapor"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#deportiva"/>
+        <Class IRI="#generalista"/>
+        <Class IRI="#trabajo"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#deportivo"/>
+        <Class IRI="#recreativo"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#diesel"/>
+        <Class IRI="#e85"/>
+        <Class IRI="#gnc"/>
+        <Class IRI="#gnl"/>
+        <Class IRI="#nafta"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#físico"/>
+        <Class IRI="#lógico"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#guiado"/>
+        <Class IRI="#no-guiado"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#hélice"/>
+        <Class IRI="#rueda"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#industrial"/>
+        <Class IRI="#pasajeros"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#marca"/>
+        <Class IRI="#medio"/>
+        <Class IRI="#medio-locomoción"/>
+        <Class IRI="#obtención-energía"/>
+        <Class IRI="#uso"/>
+        <Class IRI="#vehículo"/>
+    </DisjointClasses>
+    <ClassAssertion>
+        <Class IRI="#carretera"/>
+        <NamedIndividual IRI="#Autódromo-Juan-Manuel-Fangio"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#no-guiado"/>
+        <NamedIndividual IRI="#Aventador"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#nafta"/>
+        <NamedIndividual IRI="#Axiom-Quantium"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#trabajo"/>
+        <NamedIndividual IRI="#Boing"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#generalista"/>
+        <NamedIndividual IRI="#Chevrolet"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#trabajo"/>
+        <NamedIndividual IRI="#China-North-Locomotive-And-Rolling-Stock-Industry-Corporation"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#batería"/>
+        <NamedIndividual IRI="#FTP4-LIon"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#hidrógeno"/>
+        <NamedIndividual IRI="#H2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#diesel"/>
+        <NamedIndividual IRI="#Infinia-Diesel"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#no-guiado"/>
+        <NamedIndividual IRI="#Lancha-Santa_María"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#subterránea"/>
+        <NamedIndividual IRI="#LineaA"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#rueda"/>
+        <NamedIndividual IRI="#Michellin-Pilot-Sport"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#no-guiado"/>
+        <NamedIndividual IRI="#Model-S-110P"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#rueda"/>
+        <NamedIndividual IRI="#Pirelli-F100"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#agua"/>
+        <NamedIndividual IRI="#Rio-Paraná"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#aire"/>
+        <NamedIndividual IRI="#Ruta-Aérea-4918FNZ"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#carretera"/>
+        <NamedIndividual IRI="#Ruta40"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#no-guiado"/>
+        <NamedIndividual IRI="#S10"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#hélice-acuática"/>
+        <NamedIndividual IRI="#STLF4-A20"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#trabajo"/>
+        <NamedIndividual IRI="#Scania"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#nafta"/>
+        <NamedIndividual IRI="#Shell-Super"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#vapor"/>
+        <NamedIndividual IRI="#SuperHeated-Vapor-500C"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#generalista"/>
+        <NamedIndividual IRI="#Tesla"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#carretera"/>
+        <NamedIndividual IRI="#calles-ciudad"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#deportivo"/>
+        <NamedIndividual IRI="#circuito"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#físico"/>
+        <NamedIndividual IRI="#coche3-lineaA-subteBA"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#lógico"/>
+        <NamedIndividual IRI="#colectivo-122V"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#ala"/>
+        <NamedIndividual IRI="#compuesta-aluminio"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#particular"/>
+        <NamedIndividual IRI="#diario"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#deportivo"/>
+        <NamedIndividual IRI="#off-road"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#industrial"/>
+        <NamedIndividual IRI="#paquetería"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#recreativo"/>
+        <NamedIndividual IRI="#paseo"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#industrial"/>
+        <NamedIndividual IRI="#pesada"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#pasajeros"/>
+        <NamedIndividual IRI="#público"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#hélice-aérea"/>
+        <NamedIndividual IRI="#simple-rotor"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#maciza"/>
+        <NamedIndividual IRI="#sistema-rueda-carril"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#físico"/>
+        <NamedIndividual IRI="#tren-formación1-rosario-BA"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#electricidad"/>
+        <NamedIndividual IRI="#vía-electrificada"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#carretera"/>
+        <NamedIndividual IRI="#122V"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#no-guiado"/>
+        <NamedIndividual IRI="#450R"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#lógico"/>
+        <NamedIndividual IRI="#777"/>
+    </ClassAssertion>
+    <DifferentIndividuals>
+        <NamedIndividual IRI="#Autódromo-Juan-Manuel-Fangio"/>
+        <NamedIndividual IRI="#Aventador"/>
+        <NamedIndividual IRI="#Axiom-Quantium"/>
+        <NamedIndividual IRI="#Boing"/>
+        <NamedIndividual IRI="#Chevrolet"/>
+        <NamedIndividual IRI="#China-North-Locomotive-And-Rolling-Stock-Industry-Corporation"/>
+        <NamedIndividual IRI="#Cruze"/>
+        <NamedIndividual IRI="#FTP4-LIon"/>
+        <NamedIndividual IRI="#H2"/>
+        <NamedIndividual IRI="#Infinia-Diesel"/>
+        <NamedIndividual IRI="#Lamborghini"/>
+        <NamedIndividual IRI="#Lancha-Santa_María"/>
+        <NamedIndividual IRI="#LineaA"/>
+        <NamedIndividual IRI="#Michellin-Pilot-Sport"/>
+        <NamedIndividual IRI="#Model-S-110P"/>
+        <NamedIndividual IRI="#Onix"/>
+        <NamedIndividual IRI="#Pirelli-F100"/>
+        <NamedIndividual IRI="#Ramal-Rosario-Buenos_Aires"/>
+        <NamedIndividual IRI="#Rio-Paraná"/>
+        <NamedIndividual IRI="#Ruta-Aérea-4918FNZ"/>
+        <NamedIndividual IRI="#Ruta40"/>
+        <NamedIndividual IRI="#S10"/>
+        <NamedIndividual IRI="#STLF4-A20"/>
+        <NamedIndividual IRI="#Scania"/>
+        <NamedIndividual IRI="#Shell-Super"/>
+        <NamedIndividual IRI="#SuperHeated-Vapor-500C"/>
+        <NamedIndividual IRI="#Tesla"/>
+        <NamedIndividual IRI="#calles-ciudad"/>
+        <NamedIndividual IRI="#circuito"/>
+        <NamedIndividual IRI="#coche3-lineaA-subteBA"/>
+        <NamedIndividual IRI="#colectivo-122V"/>
+        <NamedIndividual IRI="#compuesta-aluminio"/>
+        <NamedIndividual IRI="#diario"/>
+        <NamedIndividual IRI="#off-road"/>
+        <NamedIndividual IRI="#paquetería"/>
+        <NamedIndividual IRI="#paseo"/>
+        <NamedIndividual IRI="#pesada"/>
+        <NamedIndividual IRI="#público"/>
+        <NamedIndividual IRI="#simple-rotor"/>
+        <NamedIndividual IRI="#sistema-rueda-carril"/>
+        <NamedIndividual IRI="#tren-formación1-rosario-BA"/>
+        <NamedIndividual IRI="#vía-electrificada"/>
+        <NamedIndividual IRI="#122V"/>
+        <NamedIndividual IRI="#450R"/>
+        <NamedIndividual IRI="#777"/>
+    </DifferentIndividuals>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#desplaza-por-medio"/>
+        <NamedIndividual IRI="#Aventador"/>
+        <NamedIndividual IRI="#Autódromo-Juan-Manuel-Fangio"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#pertenece-a"/>
+        <NamedIndividual IRI="#Aventador"/>
+        <NamedIndividual IRI="#Lamborghini"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#se-usa-en"/>
+        <NamedIndividual IRI="#Aventador"/>
+        <NamedIndividual IRI="#circuito"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#tiene-medio-locomoción"/>
+        <NamedIndividual IRI="#Aventador"/>
+        <NamedIndividual IRI="#Michellin-Pilot-Sport"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#usa-energía"/>
+        <NamedIndividual IRI="#Aventador"/>
+        <NamedIndividual IRI="#Axiom-Quantium"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#pertenece-a"/>
+        <NamedIndividual IRI="#Cruze"/>
+        <NamedIndividual IRI="#Chevrolet"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#desplaza-por-medio"/>
+        <NamedIndividual IRI="#Lancha-Santa_María"/>
+        <NamedIndividual IRI="#Rio-Paraná"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#se-usa-en"/>
+        <NamedIndividual IRI="#Lancha-Santa_María"/>
+        <NamedIndividual IRI="#paseo"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#tiene-medio-locomoción"/>
+        <NamedIndividual IRI="#Lancha-Santa_María"/>
+        <NamedIndividual IRI="#STLF4-A20"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#usa-energía"/>
+        <NamedIndividual IRI="#Lancha-Santa_María"/>
+        <NamedIndividual IRI="#Shell-Super"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#desplaza-por-medio"/>
+        <NamedIndividual IRI="#Model-S-110P"/>
+        <NamedIndividual IRI="#Ruta40"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#pertenece-a"/>
+        <NamedIndividual IRI="#Model-S-110P"/>
+        <NamedIndividual IRI="#Tesla"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#se-usa-en"/>
+        <NamedIndividual IRI="#Model-S-110P"/>
+        <NamedIndividual IRI="#diario"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#tiene-medio-locomoción"/>
+        <NamedIndividual IRI="#Model-S-110P"/>
+        <NamedIndividual IRI="#Pirelli-F100"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#usa-energía"/>
+        <NamedIndividual IRI="#Model-S-110P"/>
+        <NamedIndividual IRI="#FTP4-LIon"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#desplaza-por-medio"/>
+        <NamedIndividual IRI="#Onix"/>
+        <NamedIndividual IRI="#calles-ciudad"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#pertenece-a"/>
+        <NamedIndividual IRI="#Onix"/>
+        <NamedIndividual IRI="#Chevrolet"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#pertenece-a"/>
+        <NamedIndividual IRI="#S10"/>
+        <NamedIndividual IRI="#Chevrolet"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#se-usa-en"/>
+        <NamedIndividual IRI="#S10"/>
+        <NamedIndividual IRI="#off-road"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#tiene-medio-locomoción"/>
+        <NamedIndividual IRI="#S10"/>
+        <NamedIndividual IRI="#Pirelli-F100"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#usa-energía"/>
+        <NamedIndividual IRI="#S10"/>
+        <NamedIndividual IRI="#Infinia-Diesel"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#desplaza-por-medio"/>
+        <NamedIndividual IRI="#coche3-lineaA-subteBA"/>
+        <NamedIndividual IRI="#LineaA"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#se-usa-en"/>
+        <NamedIndividual IRI="#coche3-lineaA-subteBA"/>
+        <NamedIndividual IRI="#público"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#tiene-medio-locomoción"/>
+        <NamedIndividual IRI="#coche3-lineaA-subteBA"/>
+        <NamedIndividual IRI="#sistema-rueda-carril"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#usa-energía"/>
+        <NamedIndividual IRI="#coche3-lineaA-subteBA"/>
+        <NamedIndividual IRI="#vía-electrificada"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#desplaza-por-medio"/>
+        <NamedIndividual IRI="#colectivo-122V"/>
+        <NamedIndividual IRI="#122V"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#se-usa-en"/>
+        <NamedIndividual IRI="#colectivo-122V"/>
+        <NamedIndividual IRI="#público"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#tiene-medio-locomoción"/>
+        <NamedIndividual IRI="#colectivo-122V"/>
+        <NamedIndividual IRI="#Pirelli-F100"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#usa-energía"/>
+        <NamedIndividual IRI="#colectivo-122V"/>
+        <NamedIndividual IRI="#Infinia-Diesel"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#medio-correspondiente"/>
+        <NamedIndividual IRI="#compuesta-aluminio"/>
+        <NamedIndividual IRI="#Ruta-Aérea-4918FNZ"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#desplaza-por-medio"/>
+        <NamedIndividual IRI="#tren-formación1-rosario-BA"/>
+        <NamedIndividual IRI="#Ramal-Rosario-Buenos_Aires"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#pertenece-a"/>
+        <NamedIndividual IRI="#tren-formación1-rosario-BA"/>
+        <NamedIndividual IRI="#China-North-Locomotive-And-Rolling-Stock-Industry-Corporation"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#se-usa-en"/>
+        <NamedIndividual IRI="#tren-formación1-rosario-BA"/>
+        <NamedIndividual IRI="#público"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#tiene-medio-locomoción"/>
+        <NamedIndividual IRI="#tren-formación1-rosario-BA"/>
+        <NamedIndividual IRI="#sistema-rueda-carril"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#usa-energía"/>
+        <NamedIndividual IRI="#tren-formación1-rosario-BA"/>
+        <NamedIndividual IRI="#Infinia-Diesel"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#desplaza-por-medio"/>
+        <NamedIndividual IRI="#450R"/>
+        <NamedIndividual IRI="#Ruta40"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#pertenece-a"/>
+        <NamedIndividual IRI="#450R"/>
+        <NamedIndividual IRI="#Scania"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#se-usa-en"/>
+        <NamedIndividual IRI="#450R"/>
+        <NamedIndividual IRI="#pesada"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#tiene-medio-locomoción"/>
+        <NamedIndividual IRI="#450R"/>
+        <NamedIndividual IRI="#Pirelli-F100"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#usa-energía"/>
+        <NamedIndividual IRI="#450R"/>
+        <NamedIndividual IRI="#Infinia-Diesel"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#desplaza-por-medio"/>
+        <NamedIndividual IRI="#777"/>
+        <NamedIndividual IRI="#Ruta-Aérea-4918FNZ"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#pertenece-a"/>
+        <NamedIndividual IRI="#777"/>
+        <NamedIndividual IRI="#Boing"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#se-usa-en"/>
+        <NamedIndividual IRI="#777"/>
+        <NamedIndividual IRI="#paquetería"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#tiene-medio-locomoción"/>
+        <NamedIndividual IRI="#777"/>
+        <NamedIndividual IRI="#compuesta-aluminio"/>
+    </ObjectPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#renovable"/>
+        <NamedIndividual IRI="#Axiom-Quantium"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#renovable"/>
+        <NamedIndividual IRI="#Infinia-Diesel"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#desplaza-por-medio"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#pertenece-a"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#se-usa-en"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#tiene-medio-locomoción"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#tiene-modelo"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#tipo-de-uso"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#usa-energía"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#pertenece-a"/>
+        <ObjectProperty IRI="#tiene-modelo"/>
+    </InverseObjectProperties>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#desplaza-por-medio"/>
+        <Class IRI="#vehículo"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#medio-correspondiente"/>
+        <Class IRI="#medio-locomoción"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#pertenece-a"/>
+        <Class IRI="#vehículo"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#se-usa-en"/>
+        <Class IRI="#vehículo"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#tiene-medio-locomoción"/>
+        <Class IRI="#vehículo"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#tiene-modelo"/>
+        <Class IRI="#marca"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#tipo-de-uso"/>
+        <Class IRI="#marca"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#usa-energía"/>
+        <Class IRI="#vehículo"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#desplaza-por-medio"/>
+        <Class IRI="#medio"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#medio-correspondiente"/>
+        <Class IRI="#medio"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#pertenece-a"/>
+        <Class IRI="#marca"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#se-usa-en"/>
+        <Class IRI="#uso"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#tiene-medio-locomoción"/>
+        <Class IRI="#medio-locomoción"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#tiene-modelo"/>
+        <Class IRI="#vehículo"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#tipo-de-uso"/>
+        <Class IRI="#uso"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#usa-energía"/>
+        <Class IRI="#obtención-energía"/>
+    </ObjectPropertyRange>
+    <DataPropertyDomain>
+        <DataProperty IRI="#renovable"/>
+        <Class IRI="#obtención-energía"/>
+    </DataPropertyDomain>
+    <DataPropertyRange>
+        <DataProperty IRI="#renovable"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+
